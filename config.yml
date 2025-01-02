@@ -1,0 +1,40 @@
+# Basic configuration for the /music repo
+
+# Where the layouts are located. Since we're using a submodule to include layouts from the main repo, we point it to the _layouts folder.
+layouts_dir: "_layouts"  # The layout files should be inside the _layouts folder, which is the submodule directory
+
+# Optionally, you can set a theme for your site
+#theme: "jekyll-theme-cayman"  # You can replace this with any other theme, or leave it out if you don't need a theme
+
+# The destination folder where Jekyll will output the compiled site (default is _site)
+destination: "_site"
+
+# Set the URL of the site
+url: "https://72db.github.io/music"  # Replace with your actual site URL
+
+# Permalink configuration (optional)
+permalink: /:year/:month/:day/:title/
+
+# Configure your site's title and description
+title: "Music Collection"
+description: "A collection of music reviews, albums, and more!"
+
+# Enable drafts if you want to work on drafts and not publish them yet
+drafts: false
+
+# Setting for markdown processor (you can use kramdown or others)
+markdown: kramdown
+
+# Define where the posts are stored (defaults to _posts)
+collections:
+  posts:
+    output: true  # This makes sure the posts are available as part of the generated site
+
+# Enable pagination (optional)
+paginate: 5
+paginate_path: "/page:num/"
+
+# Plugins (optional, if you need them)
+plugins:
+  - jekyll-feed    # For RSS feed
+  - jekyll-seo-tag # For SEO tags (meta tags for social sharing)
