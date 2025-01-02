@@ -1,0 +1,137 @@
+---
+layout: base
+---
+{% if page.dev %}
+<pre style="color: red;">
+page.dev == {{ page.dev }}
+page.layout == from {{ page.layout }}
+page.title == from {{ page.title }}
+site.paginate == {{ site.paginate }}
+Total number of posts: {{ site.posts | size }}
+</pre>
+{%- endif -%}
+
+<article>
+  <div class="grid">
+    <div>
+      <details open>
+        <summary role="button">MUPS</summary>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">PS</th>
+              <th scope="col">CC</th>
+              <th scope="col">Char</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">UnLimit</th>
+              <td>bdrbt</td>
+              <td>
+                <ul>
+                  <li>badrobot</li>
+                  <li>OhMG</li>
+                </ul>
+              </td>
+          </tr>
+          </tbody>
+          <!-- {%- include tbl/tfoot.html -%} -->
+        </table>
+      </details>
+    </div>
+    <div>
+      <details open>
+        <summary role="button">MUPS</summary>
+        <table>
+          <thead>
+            <tr>
+              <th scope="col">Planet</th>
+              <th scope="col">Diameter (km)</th>
+              <th scope="col">Distance to Sun (AU)</th>
+              <th scope="col">Orbit (days)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Mercury</th>
+              <td>4,880</td>
+              <td>0.39</td>
+              <td>88</td>
+            </tr>
+            <tr>
+              <th scope="row">Venus</th>
+              <td>12,104</td>
+              <td>0.72</td>
+              <td>225</td>
+            </tr>
+            <tr>
+              <th scope="row">Earth</th>
+              <td>12,742</td>
+              <td>1.00</td>
+              <td>365</td>
+            </tr>
+            <tr>
+              <th scope="row">Mars</th>
+              <td>6,779</td>
+              <td>1.52</td>
+              <td>687</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Average</th>
+              <td>9,126</td>
+              <td>0.91</td>
+              <td>341</td>
+            </tr>
+          </tfoot>
+        </table>
+      </details>
+    </div>
+  </div>
+</article>
+
+{% if page.title == "zindex" %}
+  <article>
+    <h2>page.title is index</h2>
+    {% for post in site.posts limit:4 %}
+    <div>
+      <p><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time></p>
+      <p><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></p>
+    </div>
+    {% endfor %}
+  </article>
+  
+
+{% else %}
+  <h1>ELSE</h1>
+  <article>
+    <h2>page.title is not index {{page.title}}</h2>
+    {% for post in paginator.posts %}
+      <div>
+        <p><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%b %d, %Y" }}</time></p>
+        <p><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></p>
+      </div>
+    {% endfor %}
+  
+    <hr />
+  
+    <!-- Pagination Links -->
+    <div class="pagination">
+      {% if paginator.previous_page %}
+        <a href="{{ paginator.previous_page_path }}">Previous</a>
+      {% else %}
+        <span>Previous</span>
+      {% endif %}
+      
+      <span>Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+  
+      {% if paginator.next_page %}
+        <a href="{{ paginator.next_page_path }}">Next</a>
+      {% else %}
+        <span>Next</span>
+      {% endif %}
+    </div>
+  </article>
+{%- endif -%}
