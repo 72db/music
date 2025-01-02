@@ -1,0 +1,48 @@
+---
+layout: base
+title: mups
+debug: false
+---
+{% if page.debug %}
+<p>debug</p>
+<!-- Display Raw Data to Debug -->
+<pre>
+
+{{ site.data.mups | jsonify }}
+
+</pre>
+{%- endif -%}
+<article class="grid">
+  <div>
+    <h2>mups //: total: {{ site.data.mups.size }}</h2>
+    {% for server in site.data.mups %}
+      {% assign server_name = server.name %}
+      <h3>{{ server_name }}</h3>
+      {% for account in server.accounts %}
+      <details>
+        <summary role="button" class="w3-flat-wet-asphalt">{{ account.acc }}</summary>
+        <ul>
+        {% for character in account.characters %}
+          <li>            
+            {% if character contains "250" %}
+              {% assign char = character | split: ' ' | first %}
+              <kbd>{{ char }}</kbd>
+            {% else %}
+              {{ character }}
+            {% endif %}
+          </li>
+        {% endfor %}
+        </ul>
+      </details>
+      {% endfor %}
+    {% endfor %}
+  </div>
+  <div>*</div>
+  <div>*</div>
+  <div>
+    <ul>
+      <li>firefox th-j=AQjt)Hn%xc}!3</li>
+      <li>https://www.mp3tag.de/en/index.html</li>
+    </ul>
+  </div>
+</article>

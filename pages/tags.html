@@ -1,0 +1,14 @@
+---
+#permalink: /tags/
+layout: base
+title: unlimit
+---
+  <ul>
+    {% for page in site.pages %}
+      {% if page.url contains '/pages/' %}
+        <li>
+          <a href="{{ page.url }}">{{ page.title | default: page.name }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>

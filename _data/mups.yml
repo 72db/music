@@ -1,0 +1,30 @@
+- name: UnLimit
+  accounts:
+    - acc: bdrbt*01012025
+      characters:
+        - badrobot
+        - OhMG
+    - acc: uns**
+      characters:
+        - uryu 250
+        - kurogane 250
+        - Mage 0
+        - Alchemist 0
+        - Bamboo 0
+    - acc: a47**
+      characters:
+        - Blue 250
+        - nana 250
+        - YHWACH 61
+        - Oreo 250
+
+#- name: infinity
+#  accounts:
+#    - acc: codelord
+#      characters:
+#        - CodeWizard
+#        - InfiniteX
+#    - acc: coder2
+#      characters:
+#        - DevMaster
+#        - CodeKing

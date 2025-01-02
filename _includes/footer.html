@@ -1,0 +1,17 @@
+
+  {% if page.title != 404 %}
+  
+  <footer class="recenter">
+    <p>&copy; 2024 Your Company. All rights reserved.
+      <br />
+      <sub><i class="fa-regular fa-pen-to-square"></i> {{ page.last_modified_at | date: "%m%d%Y%H%M" }}</sub>
+      <br />
+      <img src="{{ "/assets/images/mp3.gif" | relative_url }}"/>
+    </p>
+  </footer>
+
+  <button class="to-top" onclick="toggleToTopButton()">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+  
+  {% endif %}
